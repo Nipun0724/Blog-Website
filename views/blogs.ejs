@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %>
+<body>
+  <% if(!locals.blogArray){%>
+  <h1>No Blogs uploaded yet...</h1>
+  <%}else{%>
+    <ul>
+    <% for(var i=0;i<blogArray.length;i++){%>
+      <% if(blogArray.length===1){%>
+        <li><%= blogArray[i] %></li>
+        
+         <a href="/edit/<%= i %>">Edit</a>
+         <a href="/blog/<%=i%>">Delete</a>
+      <%}else{%>
+          <li><%= blogArray[i] %></li>
+        <a href="/edit/<%= i %>">Edit</a>
+         <a href="/blog/<%=i%>">Delete</a>
+        <%  }%>
+    <%} %>
+    </ul>
+ <%}%>
+</body>
+<%- include("partials/footer.ejs") %>
